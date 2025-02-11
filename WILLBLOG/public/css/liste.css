@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    background: linear-gradient(to bottom, rgb(0, 140, 255), rgb(3, 121, 255));
+
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    background: none;
+    z-index: 1001;
+  }
+
+
+  .logo img {
+    height: 60px;
+    cursor: pointer;
+
+  }
+
+  .nav-buttons {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    left: 2px; /* Déplacement des boutons vers la gauche */
+    /* position: fixed; */
+  }
+
+  .nav-buttons .btn {
+    padding: 8px 15px;
+    background: linear-gradient(to right, purple, rgb(0, 0, 114));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+  }
+
+  .nav-buttons .btnx {
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, rgb(0, 140, 255), rgba(0, 0, 0, 0.432));
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(115, 240, 245);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+  }
+
+  /* button Admin transparant */
+  .nav-buttons .btnxx {
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, rgba(0, 140, 255, 0), rgba(0, 0, 0, 0));
+    color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(115, 241, 245, 0);
+  }
+
+  .navbar {
+    /* position: fixed; */
+    top: 70px; /* Décalé pour laisser la place au logo et boutons */
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.226), rgb(64, 0, 77), rgba(0, 0, 0, 0.226));
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-bar input {
+    padding: 8px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+
+  .search-btn {
+    padding: 8px 15px;
+    background: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+
+  .hero {
+    background: linear-gradient(to bottom, rgb(3, 121, 255), rgb(3, 121, 255));
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, bold;
+    padding: 50px 10px 0.5px;
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    text-shadow: white;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .content {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgb(3, 121, 255), rgb(0, 255, 221));
+    /* text-shadow: 3px 3px 10px rgb(0, 0, 0); */
+  }
+
+  .content h2 {
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, rgb(58, 3, 255), rgb(0, 0, 0));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.507);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+  
+  }
+
+  .post-list {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(228, 228, 228);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 10rem;
+    width: 80%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.815);
+
+  }
+
+  .post-list th,
+  .post-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    
+  }
+
+  .post-list th {
+    background: linear-gradient(to bottom, rgb(0, 38, 255), rgb(0, 0, 0));
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.815);
+  }
+
+  .post-list a {
+    color: #2b32b2;
+    text-decoration: none;
+  }
+
+  .post-list a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    background: rgb(0, 0, 0);
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+  }
+
+  /* la box des postes */
+
+  .box {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom,  #000e29, #e306f7d0);
+    color: #333;
+    top: 35%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.37);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.post {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.post .date {
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+
+.form {
+    margin-top: 15px;
+}
+
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form button {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    font-size: 20px;
+    background: linear-gradient(to bottom, rgb(0, 225, 255), rgb(26, 0, 139));
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+
+.form button:hover {
+    background: #2980b9;
+    
+
+}
+
+/* mes post */
+.container {
+    width: 80%;
+    max-width: 800px;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(240, 233, 233));
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+
+.post {
+    background: linear-gradient(to bottom, rgb(0, 225, 255), rgb(255, 255, 255));
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post p {
+    margin: 5px 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+.post .created-at {
+    font-size: 12px;
+    color: #3a3a3a;
+    font-weight: bold;
+}
+
+.post .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post .actions a,
+.post .actions button {
+    text-decoration: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+    background: linear-gradient(to bottom, rgb(0, 225, 255), rgb(26, 0, 139));
+    color: white;
+    border-radius: 5px;
+}
+
+.post .actions a:hover,
+.post .actions button:hover {
+    background-color: #4b6cb7;
+}
+
+.post .actions .delete-button {
+    background-color: #e63946;
+    background: linear-gradient(to bottom, rgb(255, 0, 0), rgb(0, 0, 0));
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+
+.post .actions .delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.no-posts {
+    font-size: 16px;
+    color: #555555;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    box-shadow: 0 5px px rgb(0, 0, 0);
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #222222;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    font-size: 14px;
+    color: #555555;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    font-size: 20px;
+    background: linear-gradient(to bottom, rgb(0, 225, 255), rgb(26, 0, 139));
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+   
+
+
+button:hover {
+    background: linear-gradient(90deg, #182848, #4b6cb7);
+}
