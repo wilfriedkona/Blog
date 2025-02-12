@@ -7,14 +7,13 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\CommentController;
 
 
 //route racine
 Route::get('/', function () {
     return view('welcome');
 });
-
-// les routes
 
 // route pour les postes et commentaires
 Route::middleware('auth')->group(function () {
@@ -27,10 +26,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/commentaire/{commentaire}/comment', [CommentaireController::class, 'addComment'])->name('commentaire.comment');
 });
 
-// La Route pour la vue Mes Postes
+//route pour crud commentaire de poste modifier et supprimer
+Route::middleware('auth')->group(function () {
+    Route::get('/comment/{comment}/edit', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::put('/comment/{comment}', [CommentController::class, 'update'])->name('comment.update');
+    Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+});
+
+// route pour la vue page mespostes
 Route::get('/mespostes', [WelcomeController::class, 'mespostes'])->name('mespostes');
 
-// La Route pour fairposte
+//route pour fairposte
 Route::get('/fairposte', [WelcomeController::class, 'fairposte'])->name('fairposte');
 
 //route CRUD admin 

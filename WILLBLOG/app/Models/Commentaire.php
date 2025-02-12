@@ -8,10 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Commentaire extends Model
 {
    
-    //
     protected $fillable = ['url', 'titre', 'commentaire', 'user_id'];
 
-    // relation pour plusieurs commentaires à un poste
     public function comments()
     {
         return $this->hasMany(Comment::class);

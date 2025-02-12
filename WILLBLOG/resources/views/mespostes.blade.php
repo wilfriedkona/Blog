@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La listes de vos blogs</title>
-  <link href="{{ asset('css/liste.css')}}" rel="stylesheet">
+  <link href="{{ asset('css/welcome.css')}}" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -12,7 +12,7 @@
   <header>
     <div class="top-bar">
       <a href="#" class="logo">
-        <img src="image/blog.png" alt="" width="90" height="150">
+        <img src="{{ asset('image/blog.png')}}" alt="" width="90" height="150">
       </a>
       <div class="nav-buttons">
 
@@ -27,10 +27,10 @@
         <button class="btnx">Accueil</button></a>
         
         <a href="{{ route('fairposte') }}">
-        <button class="btnx">Faire un poste</button></a>
+        <button class="btnx">Faire un Blog</button></a>
 
         <a href="{{ route('mespostes') }}">                         
-        <button class="btnx">Mes Postes</button></a>
+        <button class="btnx">Mes Blogs</button></a>
 
         <a href="{{ route('dashboard')}}">
         <button class="btn">Mon Profil</button></a>
@@ -52,7 +52,7 @@
       <h1>La listes de vos blogs</h1>
     </section>
     <section class="content">
-      <h2>Mes Postes</h2>
+      <h2>Mes Blogs</h2>
 </head>
 
 
@@ -60,21 +60,25 @@
 
 <div class="container">
     
-    <!-- Message d'erreur si il n'a pas encore de posts -->
+<div class="space-y-4">
+
     @if ($mesposts->isEmpty())
-        <p class="no-posts">Vous n'avez pas encore de posts.</p>
+        <p class="no-posts">Vous n'avez pas encore de blogs.</p>
+
+        <a href="{{ route('fairposte') }}">
+        <button class="btn">Faire un Blog</button></a>
     @else
         @foreach ($mesposts as $post)
             <div class="post">
                 <h2>{{ $post->titre }}</h2>
                 <p>{{ $post->commentaire }}</p>
-                <p class="created-at"> Posté le{{ $post->created_at->format('d/m/Y H:i') }}</p>
+                <p class="date"> Posté le{{ $post->created_at->format('d/m/Y H:i') }}</p>
                      
 
                 <div class="post">
                   @foreach ($post->comments as $comment)
                   <div class="post">
-                    <p>{{ $comment->commentaire }}</p>
+                    <h1>{{ $comment->commentaire }}</h1>
                     <p class="date">Commenté le {{ $comment->created_at->format('d/m/Y H:i') }}</p>
                       par <strong>{{ $comment->user->name }}</strong>
                   </div>
@@ -82,16 +86,17 @@
                 </div>
 
                 <div class="actions">
-                    <a href="{{ route('commentaire.edit', $post) }}">Modifier</a>
+                    <a href="{{ route('commentaire.edit', $post) }}" class="text-blue-500 hover:underline">Modifier</a>
                     <form action="{{ route('commentaire.destroy', $post) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="delete-button">Supprimer</button>
+                        <button type="submit" class="text-red-500 hover:underline">Supprimer</button>
                     </form>
                 </div>
             </div>
         @endforeach
     @endif
+</div>
 </div>
 </body>
 

@@ -73,6 +73,21 @@
                     <p class="date">Commenté le {{ $comment->created_at->format('d/m/Y H:i') }}</p>
                       par <strong>{{ $comment->user->name }}</strong>
                   </div>
+
+                    @auth
+                              @if ($comment->user_id === auth()->id())
+                                  <div class="flex space-x-2 mt-2">
+                                      <a href="{{ route('comment.edit', $comment) }}" class="text-blue-500 hover:underline">Modifier le commentaire</a>
+                                      <form action="{{ route('comment.destroy', $comment) }}" method="POST">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button type="submit" class="text-red-500 hover:underline">Supprimer le commentaire</button>
+                                      </form>
+                                  </div>
+                              @endif
+                    @endauth
+                    
+
                   @endforeach
                 </div>
 

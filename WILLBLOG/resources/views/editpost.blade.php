@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La listes de vos postes</title>
-  <link href="{{ asset('css/liste.css')}}" rel="stylesheet">
+  <link href="{{ asset('css/welcome.css')}}" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -12,7 +12,7 @@
   <header>
     <div class="top-bar">
       <a href="#" class="logo">
-        <img src="{{ asset('image/logo.png')}}" alt="" width="90" height="150">
+        <img src="{{ asset('image/blog.png')}}" alt="" width="90" height="150">
       </a>
       <div class="nav-buttons">
 
@@ -49,7 +49,7 @@
   </header>
   <main>
     <section class="hero">
-      <h1>La listes de vos postes</h1>
+      <h1>La liste de vos postes</h1>
     </section>
     <section class="content">
       <h2>Modifier ce Poste</h2>
@@ -57,39 +57,33 @@
 
 
 <div class="box">
-
-    <style>
-        
-        
-    </style>
-</head>
-<body>
     <div class="container">
+       <div class="space-y-4">
        
         <form action="{{ route('commentaire.update', $commentaire) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="url">URL:</label>
-                <input type="text" name="url" id="url" value="{{ $commentaire->url }}" required>
+                <input class="input-textarea" type="text" name="url" id="url" value="{{ $commentaire->url }}" required>
             </div>
+
             <div class="form-group">
                 <label for="titre">Titre:</label>
-                <input type="text" name="titre" id="titre" value="{{ $commentaire->titre }}" required>
+                <input class="input-textarea" type="text" name="titre" id="titre" value="{{ $commentaire->titre }}" required>
             </div>
+
             <div class="form-group">
                 <label for="commentaire">Commentaire:</label>
-                <textarea name="commentaire" id="commentaire" required>{{ $commentaire->commentaire }}</textarea>
+                <textarea class="input-textarea" name="commentaire" id="commentaire" required>{{ $commentaire->commentaire }}</textarea>
             </div>
-            <button class="btnx" type="submit">Enregistrer les modifications</button>
+            
+            <button class="btn" type="submit">Enregistrer les modifications</button>
         </form>
     </div>
-</body>
+  </div>
 
 </div>
-</body>
-
-  </div>
 </section>
   </main>
 
@@ -98,8 +92,8 @@
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <a href="https://flowbite.com/" class="flex items-center">
-                  <img src="{{ asset('image/logo.png')}}" class="w-[50px] me-3" alt="FlowBite Logo" />
-                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">This Comments</span>
+                  <img src="{{ asset('image/blog.png')}}" class="w-[50px] me-3" alt="FlowBite Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Blog</span>
               </a>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

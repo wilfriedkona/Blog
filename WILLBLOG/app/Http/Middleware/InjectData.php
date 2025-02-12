@@ -17,7 +17,6 @@ class InjectData
      */
     public function handle(Request $request, Closure $next): Response
     {
-         // Injecte des données globales dans toutes les vues
          View::share('globalData', 'Some global value');
          View::share('users', User::all());
          

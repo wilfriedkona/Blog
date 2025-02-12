@@ -18,18 +18,18 @@ class InjectPosts
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            // Vérifier si la route actuelle est 'mespostes'
+
             if ($request->routeIs('mespostes')) {
-                // Récupérer les posts de l'utilisateur connecté
+
                 $posts = Commentaire::where('user_id', auth()->id())
                                     ->orderBy('created_at', 'desc')
                                     ->get();
     
-                // Partager les posts uniquement pour la vue 'mespostes'
+
                 view()->share('mesposts', $posts);
             }
 
-             // Partager les posts de tous les utilisateurs sur la page 'connect'
+
         if ($request->routeIs('connect')) {
             $posts = Commentaire::with(['user', 'comments.user'])
                                    ->orderBy('created_at', 'desc')

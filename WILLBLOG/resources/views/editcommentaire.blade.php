@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faire un Blog</title>
+  <title>Modifier votre commentaire</title>
   <link href="{{ asset('css/welcome.css')}}" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -11,15 +11,19 @@
 <body>
   <header>
     <div class="top-bar">
-      <a href="#" class="logo">
+      <a href="indexx.html" class="logo">
         <img src="{{ asset('image/blog.png')}}" alt="" width="90" height="150">
       </a>
       <div class="nav-buttons">
 
+        <!-- <button class="btn">Inscription</button>
+        <button class="btn">Connexion</button>
+        <button class="btn">Inscription</button> -->
+        
         <a href="{{ route('admin')}}">
         <button class="btnxx">Admin</button></a>
 
-        <a href="{{ route('connect') }}">
+        <a href="{{ route('connect')}}">
         <button class="btnx">Accueil</button></a>
         
         <a href="{{ route('fairposte') }}">
@@ -45,52 +49,40 @@
   </header>
   <main>
     <section class="hero">
-      <h1> Poster librement vos idées 📝 </h1>
+      <h1>Bienvenue sur Blog, postez librement vos idées 📝</h1>
     </section>
     <section class="content">
-      <h2>Faire un Blog</h2>
+      <h2>Modifier votre commentaire</h2>
 </head>
 
 
 <div class="box">
-    <title>Ajouter un Commentaire</title>
-
     <div class="container">
-         <div class="space-y-4">
-                @if ($errors->any())
-                    <div class="container">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-        <form action="{{ route('commentaire.store') }}" method="POST" >
+       
+        <div class="space-y-4">
+        
+        <form action="{{ route('comment.update', $comment) }}" method="POST">
             @csrf
-
+            @method('PUT')
             <div class="form-group">
-            <input class="input-textarea" type="text" name="url" placeholder="https://Entrer l'url du post à commenter">
+                <label for="commentaire">Modifier l'ancien commentaire puis enrégistrer les modifications</label>
+                <textarea name="commentaire" id="commentaire" class="input-textarea" required>{{ $comment->commentaire }}</textarea>
             </div>
-
-            <div class="form-group">
-            <input class="input-textarea" type="text" name="titre" placeholder="TITRE">
-            </div>
-
-            <div class="form-group">
-            <textarea class="input-textarea" name="commentaire" placeholder="Écrire ..."></textarea>
-            </div>
-
-            <div >
-                <button class="btn" type="submit">Ajouter</button>
-            </div>
+            <button type="submit" class="btn">Enregistrer les modifications</button>
         </form>
+    
+
+         
+        </div>
     </div>
- </div>
-</div>
+  </div>
 </section>
   </main>
+  <!-- <footer> -->
+    <!-- <div class="footer-content">
+      <div>Coding Academy YOWL WeCode</div>
+      <div>Social Media Links</div>
+    </div> -->
 
     <footer class="bg-white dark:bg-gray-900">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
