@@ -18,33 +18,30 @@ class InjectPosts
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            // Récupérer les posts de l'utilisateur connecté
-            $posts = Commentaire::where('user_id', auth()->id())->orderBy('created_at', 'desc')->get();
+            // Vérifier si la route actuelle est 'mespostes'
+            if ($request->routeIs('mespostes')) {
+                // Récupérer les posts de l'utilisateur connecté
+                $posts = Commentaire::where('user_id', auth()->id())
+                                    ->orderBy('created_at', 'desc')
+                                    ->get();
+    
+                // Partager les posts uniquement pour la vue 'mespostes'
+                view()->share('mesposts', $posts);
+            }
 
-            // Partager les posts avec toutes les vues
+             // Partager les posts de tous les utilisateurs sur la page 'connect'
+        if ($request->routeIs('connect')) {
+            $posts = Commentaire::with(['user', 'comments.user'])
+                                   ->orderBy('created_at', 'desc')
+                                   ->get();
+
             view()->share('posts', $posts);
+           }
         }
+    
 
         return $next($request);
     }
 
-    public function commentpost()
-{
-    // Récupérer les posts avec leurs commentaires et les utilisateurs associés
-    $posts = Commentaire::with(['comments.user'])
-                        ->orderBy('created_at', 'desc')
-                        ->get();
-
-    return view('connect', compact('posts'));
-}
-
-// public function postuser()
-// {
-//     // Récupérer les posts avec les informations de l'utilisateur et les commentaires
-//     $posts = Commentaire::with(['user', 'comments.user'])
-//                         ->orderBy('created_at', 'desc')
-//                         ->get();
-
-//     return view('connect', compact('posts'));
-// }
+   
 }

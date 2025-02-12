@@ -8,10 +8,7 @@ use App\Models\Commentaire;
 
 class CommentaireController extends Controller
 {
-
-    
-    
-    //methode store pour creer un post
+     
     public function store(Request $request)
 {
     $request->validate([
@@ -20,14 +17,12 @@ class CommentaireController extends Controller
         'commentaire' => 'required|string',
     ]);
 
-    // Vérifier si l'URL existe déjà
     $existingPost = Commentaire::where('url', $request->url)->first();
 
     if ($existingPost) {
         return redirect()->route('connect')->with('post', $existingPost);
     }
 
-    // Créer un nouveau post
     Commentaire::create([
         'url' => $request->url,
         'titre' => $request->titre,
@@ -40,11 +35,12 @@ class CommentaireController extends Controller
 
 
 
-    // methode pour afficher les postes de l'utilisateur
+    // methode pour afficher les postes de l'utilisateur sur mespostes
     public function mespostes()
 {
-    $posts = Commentaire::where('user_id', auth()->id())->get();
-    return view('mespostes', compact('posts'));
+    // $posts = Commentaire::where('user_id', auth()->id())->get();
+    // return view('mespostes', compact('posts'));
+    return view('mespostes');
 }
 
     // methode pour modifier un poste
@@ -85,8 +81,6 @@ class CommentaireController extends Controller
     if ($commentaire->user_id !== auth()->id()) {
         return redirect()->route('mespostes')->with('error', 'Vous n\'êtes pas autorisé à modifier ce post.');
     }
-
-    // Afficher le formulaire de modification
     return view('editpost', compact('commentaire'));
 }
 
@@ -107,4 +101,27 @@ class CommentaireController extends Controller
     return redirect()->back()->with('success', 'Commentaire ajouté avec succès !');
 }
 
+
+public function commentpost()
+{
+    // Récupérer les posts avec leurs commentaires et les utilisateurs associés
+    $posts = Commentaire::with(['comments.user'])
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+
+    return view('connect', compact('posts'));
 }
+
+
+public function connect()
+{
+     // Récupérer les posts avec les informations de l'utilisateur et les commentaires
+    //  $posts = Commentaire::with(['user', 'comments.user'])
+    //                      ->orderBy('created_at', 'desc')
+    //                      ->get();
+    // return view('connect', compact('posts'));
+    return view('connect');
+ }
+}
+
+

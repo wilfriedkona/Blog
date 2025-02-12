@@ -48,7 +48,7 @@
   </header>
   <main>
     <section class="hero">
-      <h1>Bienvenue sur "Blog" Postez librement et sans restrictions 📝</h1>
+      <h1>Bienvenue sur Blog, postez librement vos idées 📝</h1>
     </section>
     <section class="content">
       <h2>Liste des Blogs</h2>
@@ -64,12 +64,12 @@
                 <h2>{{ $post->titre }}</h2>
                 <p>{{ $post->commentaire }}</p>
                 <p class="date">Posté le {{ $post->created_at->format('d/m/Y H:i') }}</p>
-                  
+                par <strong>{{ $post->user->name }}</strong>
 
                 <div class="post">
                   @foreach ($post->comments as $comment)
                   <div class="post">
-                    <p>{{ $comment->commentaire }}</p>
+                  <h1>{{ $comment->commentaire }}</h1>
                     <p class="date">Commenté le {{ $comment->created_at->format('d/m/Y H:i') }}</p>
                       par <strong>{{ $comment->user->name }}</strong>
                   </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La listes de vos postes</title>
+  <title>La listes de vos blogs</title>
   <link href="{{ asset('css/liste.css')}}" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -12,7 +12,7 @@
   <header>
     <div class="top-bar">
       <a href="#" class="logo">
-        <img src="image/logo.png" alt="" width="90" height="150">
+        <img src="image/blog.png" alt="" width="90" height="150">
       </a>
       <div class="nav-buttons">
 
@@ -49,7 +49,7 @@
   </header>
   <main>
     <section class="hero">
-      <h1>La listes de vos postes</h1>
+      <h1>La listes de vos blogs</h1>
     </section>
     <section class="content">
       <h2>Mes Postes</h2>
@@ -61,10 +61,10 @@
 <div class="container">
     
     <!-- Message d'erreur si il n'a pas encore de posts -->
-    @if ($posts->isEmpty())
+    @if ($mesposts->isEmpty())
         <p class="no-posts">Vous n'avez pas encore de posts.</p>
     @else
-        @foreach ($posts as $post)
+        @foreach ($mesposts as $post)
             <div class="post">
                 <h2>{{ $post->titre }}</h2>
                 <p>{{ $post->commentaire }}</p>
@@ -104,8 +104,8 @@
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <a href="https://flowbite.com/" class="flex items-center">
-                  <img src="{{ asset('image/logo.png')}}" class="w-[50px] me-3" alt="FlowBite Logo" />
-                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">This Comments</span>
+                  <img src="{{ asset('image/blog.png')}}" class="w-[50px] me-3" alt="FlowBite Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Blog</span>
               </a>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
