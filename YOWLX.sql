@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 12 fév. 2025 à 19:45
+-- Généré le : jeu. 13 fév. 2025 à 03:21
 -- Version du serveur : 8.0.41-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.20
 
@@ -53,7 +53,7 @@ CREATE TABLE `cache_locks` (
 
 CREATE TABLE `commentaires` (
   `id` bigint UNSIGNED NOT NULL,
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `titre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `commentaire` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
@@ -65,13 +65,11 @@ CREATE TABLE `commentaires` (
 -- Déchargement des données de la table `commentaires`
 --
 
-INSERT INTO `commentaires` (`id`, `url`, `titre`, `commentaire`, `user_id`, `created_at`, `updated_at`) VALUES
-(3, 'http://localhost/phpmyadmin/index.php?route=/&route=%2F&db=YOWLX&table=commentaires', 'FADEL', 'on kifff Fadel', 1, '2025-02-07 00:33:50', '2025-02-07 00:33:50'),
+INSERT INTO `commentaires` (`id`, `image`, `titre`, `commentaire`, `user_id`, `created_at`, `updated_at`) VALUES
 (5, 'http://localhost/phpmyadmin/index.php?route=/&route=%2F&db=Y', 'ZOUL', 'On kiff Zoul', 1, '2025-02-07 00:37:09', '2025-02-07 00:37:09'),
 (7, 'http://localhost/phpmyadmin/index.php?route=/database/export&db=YOWLX', 'titre modif', 'dldf::n;:n:dnlnnmehoeherihqrhre', 2, '2025-02-08 21:32:50', '2025-02-08 21:33:35'),
-(9, 'https://web.whatsapp.com/jnew', 'New Poste .', 'essaie New poste', 1, '2025-02-10 22:41:21', '2025-02-10 22:56:05'),
-(10, 'https://web.whatsapp.com/jnew/position', 'position', 'essai', 1, '2025-02-10 23:02:44', '2025-02-10 23:02:44'),
-(11, 'https://web.whatsapp.com/jnewjvhyl', 'essaie', 'gtkctcy', 1, '2025-02-10 23:17:23', '2025-02-10 23:17:23'),
+(9, 'posts/A3pby2spcAIzGgwf6ucsshjxdSg2RZUaTzBxXRcv.jpg', 'New Poste .', 'essaie New poste', 1, '2025-02-10 22:41:21', '2025-02-13 03:13:56'),
+(10, 'posts/tGeKlHLygb2mY5KPrfhsleFrxGeUZ1yf7TJvP7iZ.jpg', 'position', 'essai', 1, '2025-02-10 23:02:44', '2025-02-13 03:13:06'),
 (12, 'http://127.0.0.1:8000/fairposterrrrsrrs', 'titre le nouveau poste', 'nouveau poste blog', 2, '2025-02-12 01:55:40', '2025-02-12 18:21:12'),
 (13, 'https://web.whatsapp.com/jnewjvhyldgn', 'Roro le Blog', 'le Blog de RO', 7, '2025-02-12 10:33:32', '2025-02-12 10:33:32'),
 (15, 'https://github.com/EpitechCodingAcademyPromo2025/C-DEV-160-ABJ-1-2-yowl-othiniel.koffi/blob/feature-authen', 'le titre du blog de Samuel', 'le Blog de Samuel', 3, '2025-02-12 18:49:12', '2025-02-12 18:49:12');
@@ -96,14 +94,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `commentaire`, `user_id`, `commentaire_id`, `created_at`, `updated_at`) VALUES
-(2, 'les commentaires marche', 1, 11, '2025-02-11 01:23:21', '2025-02-11 01:23:21'),
 (3, 'oui oui', 1, 10, '2025-02-11 17:37:56', '2025-02-11 17:37:56'),
-(4, 'Chat noir', 1, 11, '2025-02-11 18:17:10', '2025-02-11 18:17:10'),
 (5, 'le commentaire de Fifion', 2, 13, '2025-02-12 14:12:19', '2025-02-12 14:12:19'),
-(7, 'Fi fi fi ...', 2, 11, '2025-02-12 16:24:20', '2025-02-12 17:24:19'),
 (9, 'modif', 2, 13, '2025-02-12 16:25:41', '2025-02-12 16:25:41'),
 (10, 'le commentaire de Samuel .', 3, 13, '2025-02-12 18:40:59', '2025-02-12 18:41:30'),
-(12, 'le commentaire du blog de Samuel', 3, 15, '2025-02-12 18:50:01', '2025-02-12 18:50:01');
+(12, 'le commentaire du blog de Samuel', 3, 15, '2025-02-12 18:50:01', '2025-02-12 18:50:01'),
+(13, '🤣🤣🤣', 2, 10, '2025-02-13 03:20:04', '2025-02-13 03:20:04');
 
 -- --------------------------------------------------------
 
@@ -209,7 +205,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('hxl9IaaNfPzNMpAdiSYlXbFBgrEwPAMmBShqVq0Q', 1, '127.0.0.1', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiU3VGQlp6aWJucEZ4aHFVQVpSbjB1T3ZGZHRYZ0ZBa0xsalYwT2FkYyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb25uZWN0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1739389421);
+('LYbVvrE18Ib56g0Bli9ngwdVuBLLft4KZk31cgLU', 2, '127.0.0.1', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:135.0) Gecko/20100101 Firefox/135.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiODU0bHFNdVpNS0tJakNaeXVQS1lXcHpUQWdEOGpTa1pwY1VyeEJLUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb25uZWN0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1739416806);
 
 -- --------------------------------------------------------
 
@@ -327,13 +323,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `failed_jobs`

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Commentaire extends Model
 {
    
-    protected $fillable = ['url', 'titre', 'commentaire', 'user_id'];
+    protected $fillable = ['image', 'titre', 'commentaire', 'user_id'];
 
     public function comments()
     {

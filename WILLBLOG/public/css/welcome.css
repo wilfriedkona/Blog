@@ -341,3 +341,13 @@ label {
 .btn:hover {
   background-color: #0056b3;
 }
+
+.reduire-image {
+  width: 400px; 
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.534);
+}

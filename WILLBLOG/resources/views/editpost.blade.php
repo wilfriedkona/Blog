@@ -60,12 +60,19 @@
     <div class="container">
        <div class="space-y-4">
        
-        <form action="{{ route('commentaire.update', $commentaire) }}" method="POST">
+        <form action="{{ route('commentaire.update', $commentaire) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="url">URL:</label>
-                <input class="input-textarea" type="text" name="url" id="url" value="{{ $commentaire->url }}" required>
+                <label for="image">l'image actuelle</label>
+                
+                <img src="{{ asset('storage/' . $commentaire->image) }}" alt="Image du post" class="reduire-image">
+              
+            </div>
+
+            <div class="form-group">
+                <label for="image">changer l'image</label>
+                <input class="input-textarea" type="file" name="image" accept="image/*">
             </div>
 
             <div class="form-group">

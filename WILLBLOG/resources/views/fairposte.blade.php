@@ -67,19 +67,20 @@
                     </div>
                 @endif
 
-        <form action="{{ route('commentaire.store') }}" method="POST" >
+        <form action="{{ route('commentaire.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
-            <input class="input-textarea" type="text" name="url" placeholder="https://Entrer l'url du post à commenter">
+                <label for="image">importer une image</label>
+            <input class="input-textarea" type="file" name="image" placeholder="téléverser votre image" accept="image/*">
             </div>
 
             <div class="form-group">
-            <input class="input-textarea" type="text" name="titre" placeholder="TITRE">
+            <input class="input-textarea" type="text" name="titre" placeholder="TITRE" required>
             </div>
 
             <div class="form-group">
-            <textarea class="input-textarea" name="commentaire" placeholder="Écrire ..."></textarea>
+            <textarea class="input-textarea" name="commentaire" placeholder="Écrire ..." required></textarea>
             </div>
 
             <div >

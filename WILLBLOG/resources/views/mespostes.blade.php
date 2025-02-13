@@ -72,6 +72,11 @@
             <div class="post">
                 <h2>{{ $post->titre }}</h2>
                 <p>{{ $post->commentaire }}</p>
+
+                @if ($post->image)
+                  <img src="{{ asset('storage/' . $post->image) }}" alt="Image du post" class="reduire-image">
+                @endif
+
                 <p class="date"> Posté le{{ $post->created_at->format('d/m/Y H:i') }}</p>
                      
 
