@@ -2,9 +2,12 @@
     
     <x-auth-session-status class="status-message" :status="session('status')" />
 
+    <div>
+        <h1>Connectez vous</h1>
+    </div>
+
     <form method="POST" action="{{ route('login') }}" class="login-form">
         @csrf
-
      
         <div class="form-group">
             <x-input-label for="email" :value="__('Email')" />
@@ -27,6 +30,7 @@
             </label>
         </div>
 
+
         <div class="form-actions">
             @if (Route::has('password.request'))
                 <a class="forgot-password-link" href="{{ route('password.request') }}">
@@ -34,6 +38,7 @@
                 </a>
             @endif
 
+            
             <x-primary-button class="submit-button">
                 {{ __('Log in') }}
             </x-primary-button>
